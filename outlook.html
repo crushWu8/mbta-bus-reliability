@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlook | MBTA Reliability Study</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo"><span>NEU</span> Transit Analytics</div>
+        <div class="nav-links">
+            <a href="main.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="outlook.html" class="active">Outlook</a>
+        </div>
+    </nav>
+
+    <!-- Main Area -->
+    <div class="main-container">
+        
+        <h1 class="page-title">Future Directions</h1>
+
+        <div class="roadmap-intro">
+            <p>
+                This project has established a solid baseline for understanding how weather shapes bus reliability across key routes. 
+                Data science is an iterative process so the analysis does not end here. Below we outline a roadmap for turning these 
+                findings into a more predictive and real time decision support system.
+            </p>
+        </div>
+
+        <!-- === Route Map Area === -->
+        <div class="roadmap-container">
+
+            <!-- Stop 1 -->
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <h3 class="roadmap-title">Current Limitations</h3>
+                <div class="roadmap-desc">
+                    <p>
+                        Our current analysis relies on historical CSV files and day level summaries. 
+                        This is effective for revealing long term patterns but it does not capture real time traffic 
+                        conditions road closures special events or sudden operational changes by the MBTA. The study also 
+                        focuses on buses so it only partially reflects how the full transit network responds to weather.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stop 2 -->
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <h3 class="roadmap-title">Predictive Modeling</h3>
+                <div class="roadmap-desc">
+                    <p>
+                        The next step is to train a machine learning model such as a Random Forest using the cleaned dataset. 
+                        The goal is to estimate a delay probability for each route based on tomorrow’s weather forecast and expected 
+                        ridership and present it as an easy to understand delay risk score. 
+                    </p>
+                </div>
+            </div>
+
+            <!-- Stop 3: -->
+            <div class="roadmap-item">
+                <div class="roadmap-dot"></div>
+                <h3 class="roadmap-title">Network Expansion</h3>
+                <div class="roadmap-desc">
+                    <p>
+                        The Green Line which runs mostly above ground is more exposed to rain and snow than the Red Line that is largely underground and commuter rail lines face their own challenges over longer distances.
+                        Future work will integrate Subway and Commuter Rail datasets to provide 
+                        a comprehensive "All-Transit" reliability map for Greater Boston.
+                    </p>
+                </div>
+            </div>
+
+            
+        </div> 
+        <div class="vision-quote">
+            Long term vision: a city where riders can trust the bus regardless of tomorrow’s weather.
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Northeastern University Student Project. Data Source: MBTA API & OpenWeatherMap.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+/* =========================================
+    Global Styles
+   ========================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Navigation Bar Style --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #000; /* NEU Black */
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    z-index: 1000; 
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #D41B2C; /* NEU Red (#D41B2C) */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #D41B2C; /* NEU Red */
+}
+
+.nav-links a.active {
+    color: #fff;
+    border-bottom: 2px solid #D41B2C; 
+}
+
+/* --- Footer Style --- */
+footer {
+    background-color: #111;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================================
+   2. Home Page Specific
+   ========================================= */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* --- Carousel Container --- */
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; 
+}
+
+/* --- Single Slide --- */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; 
+    background-position: center;
+    opacity: 0;
+    animation: fadeLoop 20s infinite; 
+}
+
+/* Delay Time */
+.slide:nth-child(1) { background-image: url('images/bus1.jpg'); animation-delay: 0s; }
+.slide:nth-child(2) { background-image: url('images/bus2.jpg'); animation-delay: 5s; }
+.slide:nth-child(3) { background-image: url('images/bus3.jpg'); animation-delay: 10s; }
+.slide:nth-child(4) { background-image: url('images/bus4.jpg'); animation-delay: 15s; }
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: -1;
+}
+
+/* --- 动画关键帧 --- */
+@keyframes fadeLoop {
+    0% { opacity: 0; }
+    10% { opacity: 1; }  
+    25% { opacity: 1; }  
+    35% { opacity: 0; }  
+    100% { opacity: 0; }
+}
+
+/* --- Main Text --- */
+.hero-content {
+    z-index: 1; 
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    max-width: 800px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #f0f0f0;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* --- Button Style --- */
+.cta-button {
+    padding: 15px 40px;
+    background-color: #D41B2C; /* NEU Red */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border: 2px solid #D41B2C;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/* =========================================
+   3. For Other Pages
+   ========================================= */
+.main-container {
+    padding-top: 100px; 
+    padding-bottom: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 80vh;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+    border-left: 5px solid #D41B2C;
+    padding-left: 15px;
+}
+
+/* =========================================
+   4. About Page Specific 
+   ========================================= */
+
+.author-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #f9f9f9; 
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #D41B2C; /* NEU Red  */
+    margin-top: 30px;
+}
+
+.profile-pic {
+    width: 150px;       
+    height: 150px;      
+    object-fit: cover;  
+    border-radius: 50%; 
+    border: 3px solid #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex-shrink: 0;    
+}
+
+.author-info h3 {
+    margin-top: 0;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.author-info h4 {
+    margin: 0 0 10px 0;
+    font-weight: 500;
+    color: #555;
+    font-style: italic;
+}
+
+/* For Mobile Phone */
+@media (max-width: 768px) {
+    .author-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   5. NEU Style Tabs
+   ========================================= */
+
+
+.tabs-container {
+    width: 100%;
+    margin-top: 30px;
+    background-color: #f2f2f2; 
+    display: flex; 
+    flex-wrap: wrap; 
+    border-bottom: 1px solid #ccc;
+}
+
+
+.tab-button {
+    background-color: #e0e0e0; 
+    color: #555;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    transition: 0.3s;
+    flex-grow: 1; 
+    text-align: center;
+    border-right: 1px solid #ccc; 
+}
+
+.tab-button:last-child {
+    border-right: none;
+}
+
+
+.tab-button:hover {
+    background-color: #d0d0d0;
+    color: #000;
+}
+
+.tab-button.active {
+    background-color: #fff; 
+    color: #D41B2C; /* NEU Red */
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    margin-bottom: -1px; 
+}
+
+/* --- Content Area --- */
+.tab-content {
+    display: none; 
+    padding: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    animation: fadeEffect 0.5s;
+    min-height: 400px; 
+}
+
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Chart Analysis Text */
+.chart-analysis {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #D41B2C;
+    margin-bottom: 30px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.vis-container {
+    width: 100%;
+    overflow-x: auto; 
+    display: flex;    
+    justify-content: center;
+    padding-bottom: 10px; 
+}
+
+/* =========================================
+   6. Map Styling 
+   ========================================= */
+
+.map-container {
+    width: 100%;
+    height: 600px; 
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.map-frame {
+    width: 100%;
+    height: 100%;
+    border: none; 
+    display: block;
+}
+
+/* =========================================
+   7. Outlook / Roadmap Styling 
+   ========================================= */
+
+.roadmap-intro {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+.roadmap-container {
+    position: relative;
+    padding-left: 30px; 
+    border-left: 4px solid #e0e0e0; 
+    margin-left: 20px;
+}
+
+
+.roadmap-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 30px;
+}
+
+
+.roadmap-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Station Dot */
+.roadmap-dot {
+    position: absolute;
+    left: -40px; 
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 4px solid #D41B2C; /* NEU Red */
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+
+.roadmap-item:hover .roadmap-dot {
+    background-color: #D41B2C;
+    transform: scale(1.2);
+}
+
+/* Node Title */
+.roadmap-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: -5px; /* 对齐圆点 */
+    margin-bottom: 10px;
+}
+
+/* Node Text */
+.roadmap-desc {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =========================================
+   8. Outlook Vision Quote 
+   ========================================= */
+
+.vision-quote {
+    text-align: center;    
+    color: #7b7979;           
+    font-size: 0.9rem;     
+    margin-top: 60px;        
+    margin-bottom: 20px;
+    font-style: italic;     
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}

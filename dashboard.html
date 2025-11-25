@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MBTA Reliability Study</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo"><span>NEU</span> Transit Analytics</div>
+        <div class="nav-links">
+            <a href="main.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
+            <a href="outlook.html">Outlook</a>
+        </div>
+    </nav>
+
+    <!-- main -->
+    <div class="main-container">
+        
+        <h1 class="page-title">Interactive Data Dashboard</h1>
+        <p>Select a tab below to view different analyses of weather impact on bus reliability.</p>
+
+        <!-- === 1. Label Button Bar === -->
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="openTab(event, 'tab1')">Overall Impact</button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">Precipitation & Demand</button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">Performance Distribution</button>
+            <button class="tab-button" onclick="openTab(event, 'tab4')">Route Ridership</button>
+            <button class="tab-button" onclick="openTab(event, 'tab5')">Reliability Map</button> 
+        </div>
+
+        <!-- === 2. Tag Content === -->
+        
+        <!-- Tab 1 -->
+        <div id="tab1" class="tab-content" style="display: block;">
+            <div class="chart-analysis">
+                <h3>1. Overall Impact</h3>
+                <p><strong>Analysis:</strong> 
+                    This chart shows the monthly on-time performance for all 
+                    key bus routes over the full study period. Each line represents one route, and together they 
+                    form a band that mostly stays between roughly 70–85% on-time.  The only major improvement occurred in 
+                    2020–2021, when reduced traffic and lighter passenger loads during the pandemic significantly increased
+                    punctuality. Outside of the COVID-19 window, the lines are more tightly clustered, suggesting that despite
+                    short-term fluctuations, overall bus reliability remained relatively stable across routes. Routes with 
+                    better road conditions stay above 80%, while those in congested corridors remain below 75%. Winter months
+                    consistently show higher performance.
+                </p>
+            </div>
+            <div id="vis1" class="vis-container"></div>
+        </div>
+
+        <!-- Tab 2  -->
+        <div id="tab2" class="tab-content">
+            <div class="chart-analysis">
+                <h3>2. Precipitation & Ridership Impact</h3> 
+                <p>
+                    <strong>Analysis:</strong> 
+                    The three scatter plots below examine how daily on-time performance changes with rainfall, snowfall, 
+                    and ridership levels. Increased rainfall did not lead to a significant decrease; the snowfall plot showed 
+                    discrete vertical bars, but the overall performance did not shift downwards with increased snow accumulation; 
+                    however, increased passenger traffic slightly increased the fluctuations and lowered the overall on-time performance, 
+                    with the median on-time performance dropping from 85% to around 75%. 
+        
+                </p>
+            </div>
+            <!-- Load weather_analysis2.json -->
+            <div id="vis2" class="vis-container"></div>
+        </div>
+
+        <!-- Tab 3  -->
+        <div id="tab3" class="tab-content">
+        <div class="chart-analysis">
+            <h3>3. Reliability Distribution by Weather Condition</h3>
+            <p>
+                <strong>Analysis:</strong> 
+                These box plots compare the distribution of on time rates on clear rainy and snowy days. 
+                Most service stays in a relatively high band of reliability but the height of the boxes shows small 
+                differences in typical performance across the three weather types. Snowy days keep a slightly higher 
+                typical on time rate while clear and rainy days are more tightly clustered. The long whiskers and 
+                scattered points below the boxes reveal that a few days experience much lower reliability especially 
+                during severe weather even though the overall median remains strong.
+            </p>
+        </div>
+        
+        <div id="vis3" class="vis-container" style="min-height: 500px;"></div>
+    </div>
+
+        <!-- Tab 4  -->
+        <div id="tab4" class="tab-content">
+            <div class="chart-analysis">
+                <h3>4. Ridership by Route and Weather</h3>
+                <p><strong>Analysis:</strong> 
+                These bars compare average daily ridership across key routes under clear rainy and snowy conditions. 
+                Central city routes carry the largest passenger volumes in every weather pattern while suburban routes 
+                serve smaller but steadier flows. Snowy days show a clear drop in ridership on almost all routes which 
+                means fewer people choose to travel when conditions are poor. This decline in demand helps explain why 
+                reliability improves on snowy days in the boxplot and map even though the weather itself is more challenging.
+            </p>
+            </div>
+            <div id="vis4" class="vis-container"></div>
+        </div>
+
+        <!-- Tab 5 -->
+        <div id="tab5" class="tab-content">
+            <div class="chart-analysis">
+                <!-- title -->
+                <h3>5. Spatial Reliability Map</h3>
+                <p>
+                    <strong>Analysis:</strong> 
+                    This map links reliability to geography across the Boston area. 
+                    Routes running through the dense downtown core display more yellow and orange segments which mark 
+                    lower on time performance while many outer suburban corridors appear in green and keep more consistent 
+                    service. When you switch to snowy conditions the map becomes greener overall yet ridership on those days is lower. 
+                    Fewer passengers board the buses in snow so vehicles make fewer stops and can recover more easily from delays which 
+                    leads to higher on time rates despite the harsher weather.
+                </p>
+            </div>
+            
+
+            <div class="map-container">
+                <iframe src="graphs/map.html" class="map-frame"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Northeastern University Student Project. Data Source: MBTA API & OpenWeatherMap.
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
