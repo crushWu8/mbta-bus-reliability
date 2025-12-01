@@ -13,7 +13,7 @@
     <nav>
         <div class="logo"><span>NEU</span> Transit Analytics</div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
+            <a href="main.html">Home</a>
             <a href="about.html" class="active">About</a>
             <a href="dashboard.html">Dashboard</a>
             <a href="outlook.html">Outlook</a>
@@ -51,6 +51,40 @@
 
         <br>
 
+        <!-- Data Description -->
+         <section>
+            <h2>Data Sources & Methodology</h2>
+            <p>
+                To ensure the accuracy and reproducibility of this analysis, we integrated four distinct datasets covering transit operations, environmental conditions, and geospatial information.
+            </p>
+            
+            <ul style="line-height: 1.8; color: #444; margin-top: 15px;">
+                <li>
+                    <strong>MBTA Reliability Data:</strong> 
+                    Reliability measures are sourced from the <a href="https://mbta-massdot.opendata.arcgis.com/datasets/b3a24561c2104422a78b593e92b566d5_0/explore" target="_blank" style="color: #D41B2C; text-decoration: none; border-bottom: 1px dotted #D41B2C;">MassDOT Open Data Portal</a>. 
+                    The tables report daily numerator and denominator values for On Time Performance by route and mode. From these fields we compute the percentage of trips that arrive on time for each key bus route and service date, which forms the main outcome variable in our analysis.
+                <li>
+                    <strong>Weather Data:</strong> 
+                    Weather conditions are retrieved through the Meteostat Python library using a point near Boston Logan International Airport as a reference location. 
+                    For each calendar day we obtain total precipitation, total snowfall, average temperature and mean wind speed. These daily summaries are matched to MBTA service dates so that each day of reliability data is paired with the corresponding local weather.
+                </li>
+
+                <li>
+                    <strong>Geospatial Data:</strong> 
+                    Shapefiles for bus routes and stops were obtained from <a href="https://www.mass.gov/info-details/massgis-data-mbta-bus-routes-and-stops" target="_blank" style="color: #D41B2C; text-decoration: none; border-bottom: 1px dotted #D41B2C;">MassGIS</a>. 
+                    These layers provide the geometry and location of key bus corridors across the Greater Boston area and are used to build interactive route maps and spatial visualizations, ensuring that reliability patterns are displayed in their correct geographic context.
+
+                <li>
+                    <strong>Ridership Data:</strong> 
+                    Historical ridership indicators for MBTA bus routes between 2016 and 2025 are taken from the <a href="https://dashboard.transitmatters.org/bus/ridership/?busRoute=1&startDate=2016-02-01&endDate=2025-12-01" target="_blank" style="color: #D41B2C; text-decoration: none; border-bottom: 1px dotted #D41B2C;">TransitMatters Data Dashboard</a>. 
+                    These data summarise passenger volumes by route and year, which allows us to compare how weather related reliability patterns differ between higher ridership corridors and routes with lower demand.
+            </ul>
+        </section>
+
+        <br>
+
+
+
         <!-- Meet the Author -->
         <section>
             <h2>Meet the Author</h2>
@@ -69,6 +103,35 @@
                     </p>
                 </div>
             </div>
+
+            <div class="author-section">
+
+                <img src="images/yao.jpg" alt="Zhiyan Yao" class="profile-pic">
+                
+                <div class="author-info">
+                    <h3>Zhiyan Yao</h3>
+                    <h4>Undergraduate Student in Mathematics, Northeastern University</h4>
+                    <p>
+                        I am Zhiyan Yao. I helped collect key datasets for this project and carried out the initial exploratory visual analysis. 
+                        I created the first draft of the box plot in JavaScript, which our team will further refine into interactive visualizations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="author-section">
+
+                <img src="images/fu.jpg" alt="Chai Fu" class="profile-pic">
+                
+                <div class="author-info">
+                    <h3>Chai Fu</h3>
+                    <h4>Undergraduate Student in Mathematics & Business Administration., Northeastern University</h4>
+                    <p>
+                        I am Chai Fu. In this project I am responsible for drafting the initial written narrative, including the description of our research questions, data sources. 
+                        I focus on turning our technical work into clear, structured text that helps readers understand the motivation, methods and implications of our analysis.
+                    </p>
+                </div>
+            </div>
+
         </section>
 
     </div>
