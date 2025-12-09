@@ -12,3 +12,4 @@ The goal of the project is to explore how weather conditions and ridership affec
 - Spatial patterns of reliability across the network
 
 The dashboard is deployed with GitHub Pages in this repository so that users can interact with the visualizations directly in their browser.
+👉 [Click here to view the interactive dashboard](https://crushwu8.github.io/mbta-bus-reliability/)
